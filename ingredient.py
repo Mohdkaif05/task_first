@@ -1,0 +1,37 @@
+data={
+    "cappuccino":{
+        "ingredient":{
+            "water":40,
+            "milk":80,
+            "coffee":20
+        },
+        "cost":150
+    },
+    "latte":{
+        "ingredient":{
+            "water":40,
+            "milk":120,
+            "coffee":30
+        },
+        "cost":200
+    },
+    "americano":{
+        "ingredient":{
+            "water":50,
+            "milk":100,
+            "coffee":30
+        },
+        "cost":100
+    },
+    "expresso":{
+        "ingredient":{
+            "water":100,
+            "milk":0,
+            "coffee":40
+        },
+        "cost":80
+    }
+
+}
+
+print(data)
