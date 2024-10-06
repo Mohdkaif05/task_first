@@ -1,3 +1,5 @@
+#pricing and ratio of ingredient
+
 data={
     "cappuccino":{
         "ingredient":{
@@ -34,4 +36,25 @@ data={
 
 }
 
-print(data)
+# Availability of stack
+stack={
+    "water":1000,
+    "milk":1000,
+    "coffee":500
+}
+
+profit=0
+
+on=True
+while on:
+    print("                             ****WELOME TO THIS AMAZING COFFEE MACHINE****")
+    choice=input("What do you like to have?(cappuccino/latte/americano/expresso/report)")
+
+    if choice=="report":
+        print("water : ",stack["water"],"ml")
+        print("milk  : ",stack["milk"],"ml")
+        print("coffee : ",stack["coffee"],"gm")
+        print("net profit :INR",profit)
+
+    elif choice=="off":
+        on=False    
