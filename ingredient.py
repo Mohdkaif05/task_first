@@ -40,7 +40,7 @@ data={                            #primary dictionary for coffee names
 }
 
 # Availability of stack
-stack={
+stock={
     "water":1000,
     "milk":1000,
     "coffee":500
@@ -51,7 +51,7 @@ profit=0 #in INR
 #function to check if stack is sufficient or not
 def check_if_avail(input):
     for item in input:
-        if(stack[item]>=input[item]):
+        if(stock[item]>=input[item]):
              return True
         else:
             return False
@@ -69,7 +69,7 @@ def payment():
 #function to update stack after each serving
 def updating_stack(input):
     for item in input:
-        stack[item]-=input[item]
+        stock[item]-=input[item]
         
     return True    
 
@@ -81,9 +81,9 @@ while on:
     choice=input("What do you like to have?(cappuccino/latte/americano/expresso/report)")
 
     if choice=="report":
-        print("water : ",stack["water"],"ml")
-        print("milk  : ",stack["milk"],"ml")
-        print("coffee : ",stack["coffee"],"gm")
+        print("water : ",stock["water"],"ml")
+        print("milk  : ",stock["milk"],"ml")
+        print("coffee : ",stock["coffee"],"gm")
         print("net profit :₹",profit)
 
     elif choice=="off":
