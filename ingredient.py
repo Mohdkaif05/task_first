@@ -39,7 +39,8 @@ data={                            #primary dictionary for coffee names
 
 }
 
-# Availability of stack
+
+# Availability of stock
 stock={
     "water":1000,
     "milk":1000,
@@ -58,16 +59,14 @@ def check_if_avail(input):
 
 #function to recieve money from costumer
 def payment():
-    print("we accept on ₹10,₹20,₹50,₹100,₹500 rupee notes" )
-    total=int(input("Number of ₹500 notes"))*500
-    total+=int(input("Number of ₹100 notes"))*100
-    total+=int(input("Number of ₹50 notes"))*50
-    total+=int(input("Number of ₹20 notes"))*20
-    total+=int(input("Number of ₹10 notes"))*10
+    a,b,c,d,e  =map(int,input("enter currency notes in following sequence:₹500,₹100,₹50,₹20,₹10   ").split())
+    total=a*500+b*100+c*50+d*20+e*10
     return total
 
+
+
 #function to update stack after each serving
-def updating_stack(input):
+def updating_stock(input):
     for item in input:
         stock[item]-=input[item]
         
@@ -81,11 +80,17 @@ while on:
     choice=input("What do you like to have?(cappuccino/latte/americano/expresso/report)")
 
     if choice=="report":
-        print("water : ",stock["water"],"ml")
-        print("milk  : ",stock["milk"],"ml")
-        print("coffee : ",stock["coffee"],"gm")
-        print("net profit :₹",profit)
+        password=input("enter the password:")
+        if(password=="chai"):
+            print("water : ",stock["water"],"ml")
+            print("milk  : ",stock["milk"],"ml")
+            print("coffee : ",stock["coffee"],"gm")
+            print("net profit :₹",profit)
 
+        else:
+            print("YOU CAN'T ACCESS REPORT")    
+
+        
     elif choice=="off":
         on=False 
     else:
@@ -94,6 +99,7 @@ while on:
             print("currently we are unable to serve you.\nsorry for inconvenience")
             on=False
         else:
+            print("your drink costs ₹",drink["cost"])
             # recieving money from user
             amt_recieve=int(payment())
             cost=drink["cost"]
@@ -111,7 +117,7 @@ while on:
                 profit+=amt_recieve-amt_return
 
                 print("Prepairing Your Coffee \n Thank You Waiting")
-                updating_stack(drink["ingredient"])
+                updating_stock(drink["ingredient"])
                 print("Here Is Your Drink \n Have A Nice Day(:")
 
             else:
